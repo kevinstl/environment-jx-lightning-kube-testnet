@@ -1,4 +1,17 @@
 PipelineSecrets: {}
+btcd-kube:
+  project:
+    namespace: lightning-kube-testnet
+    network: testnet
+    networkSuffix: -testnet
+    storage: 25Gi
+  service:
+    http:
+      externalPort: 18555
+      internalPort: 18555
+    rpc:
+      externalPort: 18556
+      internalPort: 18556
 cleanup:
   Annotations:
     helm.sh/hook: pre-delete
@@ -20,4 +33,9 @@ expose:
 jenkins:
   Servers:
     Global: {}
+lnd-kube:
+  project:
+    namespace: lightning-kube-testnet
+    network: testnet
+    networkSuffix: -testnet
 prow: {}
